@@ -16,9 +16,6 @@ headerLicense := Some(HeaderLicense.Custom(
        |""".stripMargin)
 )
 
-// How does this now work !?
-//commentStyle := CommentStyle.cStyleBlockComment
-
 lazy val globalSettings = Seq(
   organization := "com.cibo",
   scmInfo := Some(ScmInfo(
@@ -28,8 +25,8 @@ lazy val globalSettings = Seq(
   publishMavenStyle := true,
   publishArtifact in Test := false,
   publishArtifact in IntegrationTest := false,
-  scalaVersion := "2.12.4",
-  crossScalaVersions := Seq("2.11.8", "2.12.4"),
+  scalaVersion := "2.13.3",
+  crossScalaVersions := Seq("2.13.3"),
   releaseCrossBuild := true,
   releaseProcess := Seq[ReleaseStep](
     checkSnapshotDependencies,
@@ -53,7 +50,7 @@ lazy val globalSettings = Seq(
 lazy val root = project.in(file("."))
   .aggregate(`leaflet-facade`, `leaflet-draw`)
   .settings(
-    crossScalaVersions := Seq("2.11.8", "2.12.4"),
+    crossScalaVersions := Seq("2.13.3"),
     releaseCrossBuild := true,
     publishArtifact := false,
     publish := {}
@@ -62,21 +59,21 @@ lazy val root = project.in(file("."))
 lazy val `leaflet-facade` = project.in(file("leaflet"))
   .settings(globalSettings)
   .settings(
-    crossScalaVersions := Seq("2.11.8", "2.12.4"),
+    crossScalaVersions := Seq("2.13.3"),
     releaseCrossBuild := true,
     name := "leaflet-facade",
     libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % "0.9.4"
+      "org.scala-js" %%% "scalajs-dom" % "1.0.0"
     ),
     jsDependencies ++= Seq(
-      "org.webjars.npm" % "leaflet" % "1.3.1" / "1.3.1/dist/leaflet.js"
+      "org.webjars.npm" % "leaflet" % "1.6.0" / "1.6.0/dist/leaflet.js"
     )
   ) enablePlugins (ScalaJSPlugin)
 
 lazy val `leaflet-draw` = project.in(file("leaflet-draw"))
   .settings(globalSettings)
   .settings(
-    crossScalaVersions := Seq("2.11.8", "2.12.4"),
+    crossScalaVersions := Seq("2.13.3"),
     releaseCrossBuild := true,
     name := "leaflet-draw-facade",
     jsDependencies ++= Seq(
