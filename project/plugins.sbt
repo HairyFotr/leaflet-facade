@@ -1,4 +1,5 @@
-addSbtPlugin("org.scala-js"      % "sbt-scalajs" % "0.6.33")
+addSbtPlugin("org.scala-js"      % "sbt-scalajs" % "1.1.1")
+addSbtPlugin("org.scala-js" % "sbt-jsdependencies" % "1.0.1")
 addSbtPlugin("de.heikoseeberger" % "sbt-header"  % "5.0.0")
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "1.0.9")
 addSbtPlugin("org.foundweekends" % "sbt-bintray" % "0.5.4")

@@ -43,7 +43,7 @@ lazy val globalSettings = Seq(
   bintrayOrganization := Some("cibotech"),
   bintrayRepository := "public",
   bintrayPackageLabels := Seq("scala", "scala.js", "leaflet"),
-  requiresDOM := true,
+  //requiresDOM := true,
   licenses += ("BSD Simplified", url("https://opensource.org/licenses/BSD-3-Clause"))
 )
 
@@ -58,6 +58,7 @@ lazy val root = project.in(file("."))
 
 lazy val `leaflet-facade` = project.in(file("leaflet"))
   .settings(globalSettings)
+  .enablePlugins(JSDependenciesPlugin)
   .settings(
     crossScalaVersions := Seq("2.13.3"),
     releaseCrossBuild := true,
@@ -72,6 +73,7 @@ lazy val `leaflet-facade` = project.in(file("leaflet"))
 
 lazy val `leaflet-draw` = project.in(file("leaflet-draw"))
   .settings(globalSettings)
+  .enablePlugins(JSDependenciesPlugin)
   .settings(
     crossScalaVersions := Seq("2.13.3"),
     releaseCrossBuild := true,
